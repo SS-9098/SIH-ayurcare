@@ -1,0 +1,223 @@
+/* General Body and Font Styles */
+body {
+    background-color: #f8fcf8;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Ayurveda Theme Colors */
+:root {
+    --ayurvedic-green: #4CAF50;
+    --ayurvedic-light-green: #e8f5e9;
+    --ayurvedic-blue: #81D4FA;
+    --ayurvedic-gold: #FFD700;
+}
+
+.text-ayurvedic {
+    color: var(--ayurvedic-green) !important;
+}
+
+.bg-ayurvedic {
+    background-color: var(--ayurvedic-light-green) !important;
+}
+
+.btn-ayurvedic {
+    background-color: var(--ayurvedic-green);
+    border-color: var(--ayurvedic-green);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-ayurvedic:hover {
+    background-color: #388e3c;
+    border-color: #388e3c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.4);
+}
+
+.btn-ayurvedic-lg {
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    background-color: var(--ayurvedic-green);
+    border-color: var(--ayurvedic-green);
+}
+
+.btn-ayurvedic-lg:hover {
+    background-color: #388e3c;
+    border-color: #388e3c;
+}
+
+.btn-ayurvedic-outline-lg {
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    border-color: var(--ayurvedic-green);
+    color: var(--ayurvedic-green);
+}
+
+/* Navbar Styling */
+.ayurvedic-navbar {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+}
+
+.ayurvedic-brand-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--ayurvedic-green);
+}
+
+.ayurvedic-nav-link {
+    color: #555 !important;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.ayurvedic-nav-link:hover {
+    color: var(--ayurvedic-green) !important;
+}
+
+.ayurvedic-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: var(--ayurvedic-green);
+    transition: width 0.3s ease;
+}
+
+.ayurvedic-nav-link:hover::after {
+    width: 80%;
+}
+
+.ayurvedic-nav-btn {
+    border-color: var(--ayurvedic-green);
+    color: var(--ayurvedic-green);
+}
+
+.ayurvedic-nav-btn:hover {
+    background-color: var(--ayurvedic-green);
+    color: white;
+}
+
+/* Home Page Specific Styles */
+.home-container {
+    background: linear-gradient(135deg, #e0f2f1 0%, #c8e6c9 100%);
+}
+
+.home-image-card {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 2s infinite ease-in-out;
+}
+
+/* Dashboard Styles */
+.dashboard-card {
+    background: linear-gradient(135deg, #ffffff 0%, #e0f2f1 100%);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+}
+
+.dashboard-title {
+    color: var(--ayurvedic-green);
+}
+
+.bg-light-green {
+    background-color: var(--ayurvedic-light-green);
+}
+
+.dashboard-btn-logout {
+    background-color: #d9534f;
+    border-color: #d9534f;
+}
+
+.dashboard-btn-logout:hover {
+    background-color: #c9302c;
+    border-color: #c9302c;
+}
+
+/* About Page Styles */
+.about-container {
+    background: linear-gradient(45deg, #f0f4c3, #e8f5e9);
+}
+
+.about-card {
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Footer Styles */
+.ayurvedic-footer {
+    background-color: #f0f4c3;
+    color: #555;
+    padding: 2rem 0;
+}
+
+.ayurvedic-footer a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.ayurvedic-footer a:hover {
+    color: var(--ayurvedic-green);
+}
+
+/* Particle Animation (copied from BeautifulLogin for Home page) */
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating {
+    animation: floating 3s ease-in-out infinite;
+}
+
+/* Ayurveda Icon Styling */
+.ayurveda-main-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ayurveda-main-icon svg {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+    transition: transform 0.3s ease;
+}
+
+.ayurveda-main-icon svg:hover {
+    transform: scale(1.05);
+}
+
+.feature-icon svg {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+}
+
+.feature-icon svg:hover {
+    transform: scale(1.1);
+}

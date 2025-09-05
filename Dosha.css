@@ -1,0 +1,172 @@
+/* General page wrapper for the Dosha Assessment */
+.dosha-page-wrapper {
+    background: linear-gradient(to bottom, #d4edda, #c3e6cb); /* Light green gradient */
+    min-height: calc(100vh - 80px); /* Adjust based on your navbar/footer height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+/* Card styling for the assessment */
+.dosha-card {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(46, 125, 50, 0.15); /* Greenish shadow */
+    overflow: hidden;
+    background-color: #ffffff;
+    padding: 30px;
+}
+
+.ayurvedic-title {
+    color: #2E7D32; /* Dark green */
+    font-family: 'Playfair Display', serif; /* A more elegant font if available */
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    animation: fadeIn 1s ease-out;
+}
+
+.question-text {
+    color: #4CAF50; /* Medium green */
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    transition: color 0.3s ease;
+}
+
+/* Progress bar customization */
+.dosha-progress-bar .progress-bar {
+    background-color: #4CAF50; /* Green */
+    transition: width 0.4s ease-in-out;
+    height: 10px;
+    border-radius: 5px;
+}
+
+/* Radio button customization */
+.dosha-radio .form-check-input:checked {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+.dosha-radio .form-check-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(76, 175, 80, 0.25);
+}
+.dosha-radio .form-check-label {
+    color: #388E3C; /* Darker green for text */
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+.dosha-radio:hover .form-check-label {
+    color: #2E7D32; /* Even darker on hover */
+    cursor: pointer;
+}
+
+/* Buttons */
+.btn-success, .btn-outline-success {
+    border-radius: 50px;
+    padding: 10px 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-success {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+.btn-success:hover {
+    background-color: #388E3C;
+    border-color: #388E3C;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
+}
+
+.btn-secondary {
+    border-radius: 50px;
+    background-color: #9E9E9E;
+    border-color: #9E9E9E;
+    transition: all 0.3s ease;
+}
+.btn-secondary:hover {
+    background-color: #757575;
+    border-color: #757575;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Result Section Styling */
+.result-section {
+    animation: fadeIn 1.5s ease-out;
+}
+
+.result-icon-container {
+    font-size: 6rem;
+    color: #4CAF50;
+    margin-bottom: 20px;
+    display: inline-block;
+    animation: scaleIn 0.8s ease-out;
+}
+
+.dosha-result-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.dosha-result-title.vata-text { color: #81C784; } /* Lighter green for Vata */
+.dosha-result-title.pitta-text { color: #FFB300; } /* Amber for Pitta */
+.dosha-result-title.kapha-text { color: #64B5F6; } /* Light Blue for Kapha */
+.dosha-result-title.tridoshic-text { color: #2E7D32; } /* Dark Green for Tridoshic */
+
+
+.dosha-result-description {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.result-remedies-card {
+    background-color: #E8F5E9; /* Very light green */
+    border: 1px solid #C8E6C9; /* Lighter green border */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.1);
+}
+
+.remedies-title {
+    color: #388E3C;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #A5D6A7;
+}
+
+.remedy-item {
+    font-size: 1rem;
+    color: #4CAF50;
+    display: flex;
+    align-items: flex-start;
+}
+.remedy-item svg {
+    margin-top: 5px; /* Align icon better with text */
+    flex-shrink: 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Floating effect for icons */
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating {
+    animation: floating 3s ease-in-out infinite;
+}
