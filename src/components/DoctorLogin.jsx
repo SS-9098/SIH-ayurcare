@@ -8,7 +8,7 @@ import { AuthContext } from '../App';
 import './BeautifulLogin.css';
 
 const DoctorLogin = () => {
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({ email: "doctor@ayurveda.com", password: "doctor123" });
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
