@@ -12,8 +12,7 @@ const BeautifulHome = () => {
                     <Col lg={6} className="text-center text-lg-start mb-4 mb-lg-0">
                         <div className="home-header">
                             <FaLeaf size={80} className="text-success mb-3 floating" />
-                            {/* Changed Name */}
-                            <h1 className="display-4 fw-bold text-ayurvedic">Discover Your Path to AyurCare Wellness</h1>
+                            <h1 className="display-4 fw-bold text-ayurvedic">Discover Your Path to Wellness</h1>
                             <p className="lead text-muted my-4">
                                 Embrace a healthier life through the wisdom of Ayurveda. Our platform connects you with experienced doctors and personalized care plans, all in one secure place.
                             </p>
@@ -26,7 +25,7 @@ const BeautifulHome = () => {
                         <div className="home-image-card p-4 rounded-3 text-center">
                             <div className="ayurveda-main-icon mb-3">
                                 <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    {/* AyurCare Leaf Logo */}
+                                    {/* Ayurveda Leaf Logo */}
                                     {/* Main Leaf */}
                                     <path d="M60 20 Q80 15 100 25 Q95 40 80 50 Q70 45 60 50 Q50 45 40 50 Q25 40 20 25 Q40 15 60 20" 
                                           fill="#4CAF50" stroke="#2E7D32" strokeWidth="2"/>
@@ -49,9 +48,9 @@ const BeautifulHome = () => {
                                     <ellipse cx="25" cy="70" rx="6" ry="3" fill="#66BB6A" transform="rotate(-30 25 70)"/>
                                     <ellipse cx="95" cy="75" rx="6" ry="3" fill="#66BB6A" transform="rotate(30 95 75)"/>
                                     
-                                    {/* Brand Name "AyurCare" */}
+                                    {/* Brand Name */}
                                     <text x="60" y="95" textAnchor="middle" fill="#2E7D32" fontSize="12" fontWeight="bold" fontFamily="Arial, sans-serif">
-                                        AyurCare
+                                        Ayurveda
                                     </text>
                                 </svg>
                             </div>

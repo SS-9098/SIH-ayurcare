@@ -12,8 +12,7 @@ const SiteFooter = () => {
                     <Col md={4} className="mb-3 mb-md-0">
                         <div className="d-flex align-items-center justify-content-center justify-content-md-start mb-2">
                             <FaLeaf size={28} className="me-2 text-success" />
-                            {/* Changed Name */}
-                            <span className="fw-bold ayurvedic-brand-name">AyurCare</span>
+                            <span className="fw-bold ayurvedic-brand-name">Ayurveda Wellness</span>
                         </div>
                         <small className="d-block text-muted">
                             Embracing ancient wisdom for modern wellness.
@@ -38,7 +37,7 @@ const SiteFooter = () => {
                 </Row>
                 <div className="text-center py-3">
                     <small className="text-muted">
-                        © 2023 AyurCare. All Rights Reserved.
+                        © 2023 Ayurveda Wellness. All Rights Reserved.
                     </small>
                 </div>
             </Container>
