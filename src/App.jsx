@@ -6,7 +6,7 @@ import BeautifulHome from './components/BeautifulHome';
 import About from './components/About';
 import DoctorLogin from './components/DoctorLogin';
 import DoctorRegistration from './components/DoctorRegistration';
-import Dashboard from './components/Dashboard';
+import AyurvedaPracticeApp from './components/dashboard2';
 import DoshaAssessment from './components/DoshaAssessment';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -34,7 +34,7 @@ function App() {
               path="/dashboard" 
               element={
                 <PrivateRoute authState={authState}>
-                  <Dashboard />
+                  <AyurvedaPracticeApp />
                 </PrivateRoute>
               } 
             />
