@@ -19,8 +19,7 @@ const SiteNavbar = () => {
       <Container>
         <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
           <FaLeaf size={28} className="me-2 text-success" />
-          {/* Changed Name */}
-          <span className="fw-bold ayurvedic-brand-name">AyurCare</span>
+          <span className="fw-bold ayurvedic-brand-name">Ayurveda Wellness</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
