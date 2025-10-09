@@ -868,7 +868,7 @@ const Patients = () => {
             <option value="Moderate">Moderate</option>
             <option value="Severe">Severe</option>
           </select>
-          <p className="text-lg font-semibold">
+          <p className="text-lg font-semibold text-gray-900 dark:text-white">
             Dosha:{" "}
             {newPatient.dosha
               ? newPatient.dosha
@@ -1173,7 +1173,7 @@ const DietPlans = () => {
                             <span className="text-sm text-gray-600 dark:text-gray-400">
                               Carbohydrates
                             </span>
-                            <span className="font-medium">
+                            <span className="font-medium text-gray-900 dark:text-white">
                               {macros.carbs.toFixed(1)}g (
                               {((macros.carbs / total) * 100).toFixed(0)}%)
                             </span>
@@ -1191,7 +1191,7 @@ const DietPlans = () => {
                             <span className="text-sm text-gray-600 dark:text-gray-400">
                               Protein
                             </span>
-                            <span className="font-medium">
+                            <span className="font-medium text-gray-900 dark:text-white">
                               {macros.protein.toFixed(1)}g (
                               {((macros.protein / total) * 100).toFixed(0)}%)
                             </span>
@@ -1209,7 +1209,7 @@ const DietPlans = () => {
                             <span className="text-sm text-gray-600 dark:text-gray-400">
                               Fats
                             </span>
-                            <span className="font-medium">
+                            <span className="font-medium text-gray-900 dark:text-white">
                               {macros.fats.toFixed(1)}g (
                               {((macros.fats / total) * 100).toFixed(0)}%)
                             </span>
