@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Container, Row, Col, Form, Button, Card, Alert, Spinner } from "react-bootstrap";
 import { 
-  FaUserMd, FaEye, FaEyeSlash, FaLock, FaEnvelope, FaHeart, FaShieldAlt, FaStar
+  FaLeaf, FaUserMd, FaEye, FaEyeSlash, FaLock, FaEnvelope, FaHeart, FaShieldAlt, FaStar
 } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../App'; 
 import './BeautifulLogin.css';
 
 const DoctorLogin = () => {
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({ email: "doctor@ayurveda.com", password: "doctor123" });
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -29,10 +29,9 @@ const DoctorLogin = () => {
     setSuccess("");
 
     try {
-      // Simulate API call without Firebase
       await new Promise((resolve) => setTimeout(resolve, 2000));
       
-      // Dummy credentials for doctor login
+      // Demo credentials for doctor login
       if (formData.email === "doctor@ayurveda.com" && formData.password === "doctor123") {
         setSuccess("Login successful! Redirecting to dashboard...");
         setAuthState({ isAuthenticated: true, userRole: "doctor" });
@@ -156,7 +155,7 @@ const DoctorLogin = () => {
 
                 <div className="d-flex justify-content-between align-items-center mb-4">
                   <Form.Check type="checkbox" label="Remember me" className="text-muted" />
-                  <button type="button" className="btn btn-link text-ayurvedic text-decoration-none p-0 border-0">Forgot Password?</button>
+                  <a href="#" className="text-ayurvedic text-decoration-none">Forgot Password?</a>
                 </div>
 
                 <div className="mb-4">
@@ -165,9 +164,9 @@ const DoctorLogin = () => {
                     label={
                       <span className="text-muted">
                         I agree to the{' '}
-                        <button 
-                          type="button"
-                          className="btn btn-link text-ayurvedic text-decoration-none fw-bold p-0 border-0"
+                        <a 
+                          href="#" 
+                          className="text-ayurvedic text-decoration-none fw-bold"
                           onClick={(e) => {
                             e.preventDefault();
                             const termsWindow = window.open('', '_blank', 'width=800,height=600,scrollbars=yes,resizable=yes');
@@ -236,7 +235,7 @@ const DoctorLogin = () => {
                           }}
                         >
                           Terms and Conditions
-                        </button>
+                        </a>
                       </span>
                     }
                     required 
