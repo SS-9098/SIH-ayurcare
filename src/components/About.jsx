@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { FaHeart, FaSeedling, FaHandsHelping } from 'react-icons/fa';
-import './App.css';
+import '../App.css';
 
 const About = () => {
     return (

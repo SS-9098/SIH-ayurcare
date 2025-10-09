@@ -7,8 +7,8 @@ import About from './components/About';
 import DoctorLogin from './components/DoctorLogin';
 import DoctorRegistration from './components/DoctorRegistration';
 import AyurvedaPracticeApp from './components/dashboard2';
-import DoshaAssessment from './components/src/dosha';
-import './components/App.css';
+import DoshaAssessment from './components/DoshaAssessment';
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const AuthContext = createContext(null);
