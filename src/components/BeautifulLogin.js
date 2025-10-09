@@ -4,11 +4,11 @@ import {
   FaLeaf, FaUserMd, FaEye, FaEyeSlash, FaLock, FaEnvelope, FaHeart, FaShieldAlt, FaStar
 } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../App'; 
+import { AuthContext } from '../src/App'; 
 import './BeautifulLogin.css';
 
 const BeautifulLogin = () => {
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({ email: "doctor@ayurveda.com", password: "doctor123" });
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -31,7 +31,7 @@ const BeautifulLogin = () => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 2000));
       
-      if (formData.email === "doctor@ayurveda.com" && formData.password === "password123") {
+      if (formData.email === "doctor@ayurveda.com" && formData.password === "doctor123") {
         setSuccess("Login successful! Redirecting to dashboard...");
         setAuthState({ isAuthenticated: true, userRole: "doctor" });
         setTimeout(() => navigate('/dashboard'), 1000);
@@ -80,7 +80,8 @@ const BeautifulLogin = () => {
                 <div className="login-logo floating">
                   <FaLeaf />
                 </div>
-                <h2 className="login-title">Ayurveda Wellness</h2>
+                {/* Changed Name */}
+                <h2 className="login-title">AyushAhar</h2>
                 <div className="ayurveda-logo mb-3">
                   <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                     {/* Ayurveda Symbol - Three Doshas */}

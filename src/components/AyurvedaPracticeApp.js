@@ -1,8 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from '../App';
-import './style2.css';
 import {
   Calendar,
   Users,
@@ -10,17 +7,23 @@ import {
   FileText,
   Plus,
   Search,
+  Filter,
   Moon,
   Sun,
   Menu,
   X,
   Bell,
+  Settings,
   User,
   LogOut,
+  TrendingUp,
   Clock,
+  Heart,
   Leaf,
   BarChart3,
+  PieChart as rechartpie,
   Edit,
+  Trash2,
   Download,
   Eye,
   CheckCircle,
@@ -902,6 +905,7 @@ const Patients = () => {
 };
 
 const Appointments = () => {
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const [showScheduleModal, setShowScheduleModal] = useState(false);
 
   return (
@@ -1339,13 +1343,6 @@ const Reports = () => {
 // Main App Component
 const AyurvedaPracticeApp = () => {
   const store = useStore();
-  const { setAuthState } = useContext(AuthContext);
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    setAuthState({ isAuthenticated: false, userRole: null });
-    navigate('/doctor-login');
-  };
 
   const navigation = [
     { id: "dashboard", name: "Dashboard", icon: BarChart3 },
@@ -1418,24 +1415,7 @@ const AyurvedaPracticeApp = () => {
               <Button variant="secondary" size="sm">
                 <Bell className="w-4 h-4" />
               </Button>
-              <div className="relative group">
-                <button className="w-8 h-8 bg-gradient-to-r from-emerald-400 to-green-500 rounded-full flex items-center justify-center">
-                  <User className="w-4 h-4 text-white" />
-                </button>
-                <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                  <div className="p-3 border-b border-gray-200 dark:border-gray-700">
-                    <p className="text-sm font-medium text-gray-900 dark:text-white">Doctor User</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">doctor@ayurveda.com</p>
-                  </div>
-                  <button
-                    onClick={handleLogout}
-                    className="w-full px-3 py-2 text-left text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2"
-                  >
-                    <LogOut className="w-4 h-4" />
-                    Logout
-                  </button>
-                </div>
-              </div>
+              <div className="w-8 h-8 bg-gradient-to-r from-emerald-400 to-green-500 rounded-full"></div>
             </div>
           </div>
         </div>
