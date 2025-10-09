@@ -62,7 +62,7 @@ const DoctorRegistration = () => {
     }
 
     try {
-      // Simulate API call
+      // Simulate API call without Firebase
       await new Promise((resolve) => setTimeout(resolve, 3000));
       
       setSuccess("Registration successful! Your account is under review. You will receive an email once approved.");

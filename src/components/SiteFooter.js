@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FaLeaf, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import '../App.css';
+import './App.css';
 
 const SiteFooter = () => {
     return (
@@ -12,7 +12,8 @@ const SiteFooter = () => {
                     <Col md={4} className="mb-3 mb-md-0">
                         <div className="d-flex align-items-center justify-content-center justify-content-md-start mb-2">
                             <FaLeaf size={28} className="me-2 text-success" />
-                            <span className="fw-bold ayurvedic-brand-name">Ayurveda Wellness</span>
+                            {/* Changed Name */}
+                            <span className="fw-bold ayurvedic-brand-name">AyushAhar</span>
                         </div>
                         <small className="d-block text-muted">
                             Embracing ancient wisdom for modern wellness.
@@ -37,7 +38,7 @@ const SiteFooter = () => {
                 </Row>
                 <div className="text-center py-3">
                     <small className="text-muted">
-                        © 2023 Ayurveda Wellness. All Rights Reserved.
+                        © 2023 AyushAhar. All Rights Reserved.
                     </small>
                 </div>
             </Container>
