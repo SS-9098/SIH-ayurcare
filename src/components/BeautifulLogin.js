@@ -9,6 +9,7 @@ import './BeautifulLogin.css';
 
 const BeautifulLogin = () => {
   const [formData, setFormData] = useState({ email: "doctor@ayurveda.com", password: "doctor123" });
+  const BACKEND_LOGIN_URL = process.env.REACT_APP_BACKEND_URL || 'http://ec2-65-0-130-197.ap-south-1.compute.amazonaws.com:8000/doctors/login';
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -29,21 +30,47 @@ const BeautifulLogin = () => {
     setSuccess("");
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      
-      if (formData.email === "doctor@ayurveda.com" && formData.password === "doctor123") {
-        setSuccess("Login successful! Redirecting to dashboard...");
-        setAuthState({ isAuthenticated: true, userRole: "doctor" });
-        setTimeout(() => navigate('/dashboard'), 1000);
+      const res = await fetch(BACKEND_LOGIN_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password
+        })
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        // Prefer backend message if available
+        const backendMsg = data && data.message ? data.message : `Login failed with status ${res.status}`;
+        setError(backendMsg);
       } else {
-        setError("Invalid email or password. Please try again.");
+        // Expecting backend to return an id when login is successful
+        if (data && data.id) {
+          setSuccess("Login successful! Redirecting to dashboard...");
+          // Store whatever the backend returned into auth state (id, token etc.)
+          setAuthState({
+            isAuthenticated: true,
+            userRole: "doctor",
+            id: data.id,
+            token: data.token || null,
+          });
+          setTimeout(() => navigate('/dashboard'), 1000);
+        } else {
+          setError("Login succeeded but no id was returned by the server.");
+        }
       }
     } catch (err) {
-      setError("An error occurred. Please try again.");
+      console.error("Login error:", err);
+      setError("An error occurred while connecting to the server. Please try again.");
     } finally {
       setLoading(false);
     }
   };
+
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
