@@ -8,6 +8,9 @@ import { AuthContext } from '../App';
 import './BeautifulLogin.css';
 
 const DoctorLogin = () => {
+  // Backend URL - override with REACT_APP_BACKEND_URL in environment if needed
+  const BACKEND_LOGIN_URL = process.env.REACT_APP_BACKEND_URL || 'http://ec2-65-0-130-197.ap-south-1.compute.amazonaws.com:8000/doctors/login';
+
   const [formData, setFormData] = useState({ email: "doctor@ayurveda.com", password: "doctor123" });
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -29,19 +32,42 @@ const DoctorLogin = () => {
     setSuccess("");
 
     try {
-      // Simulate API call without Firebase
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      
-      // Dummy credentials for doctor login
-      if (formData.email === "doctor@ayurveda.com" && formData.password === "doctor123") {
-        setSuccess("Login successful! Redirecting to dashboard...");
-        setAuthState({ isAuthenticated: true, userRole: "doctor" });
-        setTimeout(() => navigate('/dashboard'), 1000);
+      const res = await fetch(BACKEND_LOGIN_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password
+        })
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        // Prefer backend message if available
+        const backendMsg = data && data.message ? data.message : `Login failed with status ${res.status}`;
+        setError(backendMsg);
       } else {
-        setError("Invalid email or password. Please try again.");
+        // Expecting backend to return an id when login is successful
+        if (data && data.id) {
+          setSuccess("Login successful! Redirecting to dashboard...");
+          // Store whatever the backend returned into auth state (id, token etc.)
+          setAuthState({
+            isAuthenticated: true,
+            userRole: "doctor",
+            id: data.id,
+            token: data.token || null,
+          });
+          setTimeout(() => navigate('/dashboard'), 1000);
+        } else {
+          setError("Login succeeded but no id was returned by the server.");
+        }
       }
     } catch (err) {
-      setError("An error occurred. Please try again.");
+      console.error("Login error:", err);
+      setError("An error occurred while connecting to the server. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -98,7 +124,7 @@ const DoctorLogin = () => {
                   </svg>
                 </div>
                 <div className="d-flex justify-content-center align-items-center mt-3">
-                  <FaStar className="text-warning me-2" /><FaStar className="text-warning me-2" /><FaStar className="text-warning me-2" /><FaStar className="text-warning me-2" /><FaStar className="text-warning" />
+                  <FaStar className="text-warning me-2" /><FaStar className="text-warning me-2" /><FaStar className="text-warning me-2" /><FaStar className="text-warning me-2" /><FaStar className="tex[...]
                 </div>
               </div>
 
@@ -214,17 +240,17 @@ const DoctorLogin = () => {
                                 <div class="container">
                                   <h1>Terms and Conditions - AyurPractice</h1>
                                   <div class="highlight">
-                                    <p><strong>Welcome to AyurPractice.</strong> We want to assure you that your personal and medical information is safe and secure with us. AyurPractice is committed to protecting your privacy and ensuring that your data is never shared with unauthorized third parties under any circumstances.</p>
+                                    <p><strong>Welcome to AyurPractice.</strong> We want to assure you that your personal and medical information is safe and secure with us. AyurPractice is committed [...]
                                   </div>
                                   
-                                  <p>Our organisation strictly manages all patient data in accordance with applicable healthcare laws and industry standards. This means that your medical records, treatment history, and personal details are stored securely and accessed only by authorized AyurPractice medical professionals who are directly involved in your care. We take every precaution to prevent any unauthorized access, alteration, disclosure, or destruction of your sensitive information.</p>
+                                  <p>Our organisation strictly manages all patient data in accordance with applicable healthcare laws and industry standards. This means that your medical records, trea[...]
                                   
-                                  <p>We understand the importance of confidentiality and have implemented robust security measures, including encryption, secure data storage, and regular audits, to maintain the integrity of your information. AyurPractice does not sell, rent, or trade your data, nor do we give your information to advertisers or other external organizations.</p>
+                                  <p>We understand the importance of confidentiality and have implemented robust security measures, including encryption, secure data storage, and regular audits, to ma[...]
                                   
-                                  <p>If you have any concerns or questions regarding the security of your data or how it is used, please feel free to contact our support team. We are dedicated to transparency and will gladly provide you with detailed information about our privacy practices.</p>
+                                  <p>If you have any concerns or questions regarding the security of your data or how it is used, please feel free to contact our support team. We are dedicated to tran[...]
                                   
                                   <div class="highlight">
-                                    <p><strong>By choosing AyurPractice, you entrust us with your health, and we take that responsibility very seriously. Your privacy and trust are our top priorities.</strong></p>
+                                    <p><strong>By choosing AyurPractice, you entrust us with your health, and we take that responsibility very seriously. Your privacy and trust are our top priorities.[...]
                                   </div>
                                   
                                   <p>Thank you for being a valued member of AyurPractice.</p>
