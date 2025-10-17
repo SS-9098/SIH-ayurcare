@@ -124,7 +124,7 @@ const DoctorLogin = () => {
                   </svg>
                 </div>
                 <div className="d-flex justify-content-center align-items-center mt-3">
-                  <FaStar className="text-warning me-2" /><FaStar className="text-warning me-2" /><FaStar className="text-warning me-2" /><FaStar className="text-warning me-2" /><FaStar className="tex[...]
+                  <FaStar className="text-warning me-2" /><FaStar className="text-warning me-2" /><FaStar className="text-warning me-2" /><FaStar className="text-warning me-2" /><FaStar className="tex[...]"></FaStar>
                 </div>
               </div>
 
