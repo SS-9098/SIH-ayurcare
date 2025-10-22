@@ -78,7 +78,7 @@ const DoctorRegistration = () => {
 
     // Configure your backend URL via env var or hardcode for testing
     // e.g. in .env: REACT_APP_BACKEND_URL=https://api.example.com
-    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://ec2-65-0-130-197.ap-south-1.compute.amazonaws.com:8000/doctors/register';
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'https://ayurveda-diet-plan.onrender.com/doctors/register';
 
     try {
       // Send data to backend. Using fetch here, but you can use axios if preferred.
