@@ -9,7 +9,7 @@ import './BeautifulLogin.css';
 
 const DoctorLogin = () => {
   // Backend URL - override with REACT_APP_BACKEND_URL in environment if needed
-  const BACKEND_LOGIN_URL = process.env.REACT_APP_BACKEND_URL || 'http://ec2-65-0-130-197.ap-south-1.compute.amazonaws.com:8000/doctors/login';
+  const BACKEND_LOGIN_URL = process.env.REACT_APP_BACKEND_URL || 'https://ayurveda-diet-plan.onrender.com/doctors/login';
 
   const [formData, setFormData] = useState({ email: "doctor@ayurveda.com", password: "doctor123" });
   const [showPassword, setShowPassword] = useState(false);
