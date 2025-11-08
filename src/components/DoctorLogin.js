@@ -51,6 +51,7 @@ const DoctorLogin = () => {
         setError(backendMsg);
       } else {
         // Expecting backend to return an id when login is successful
+        console.log(data);
         if (data && data.id) {
           setSuccess("Login successful! Redirecting to dashboard...");
           // Store whatever the backend returned into auth state (id, token etc.)
